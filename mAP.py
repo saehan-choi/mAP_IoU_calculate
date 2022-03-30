@@ -99,6 +99,9 @@ def mean_average_precision(
 
     TP_cumsum = torch.cumsum(TP, dim=0)
     FP_cumsum = torch.cumsum(FP, dim=0)
+    print(f'TP_cuscum             :{TP_cumsum}')
+    print(f'FP_cumsum             :{FP_cumsum}')
+
     recalls = TP_cumsum / (total_true_bboxes + epsilon)
     precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
     precisions = torch.cat((torch.tensor([1]), precisions))
@@ -139,9 +142,8 @@ if __name__ == "__main__":
             line = line.split()
             line[1:] = list(map(float, line[1:]))
             pred_arr.append(line)
-
-    print(gt_arr)
-    print(pred_arr)
-
+    # print(gt_arr)
+    # print(pred_arr)
+    print(f'amount of ground truth: {len(gt_arr)}')
     mAP = mean_average_precision(gt_arr, pred_arr)
-    print(mAP)
+    print(f'mAP                   : {round(mAP.item(),3)*100}')
