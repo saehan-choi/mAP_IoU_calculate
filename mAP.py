@@ -2,6 +2,7 @@ import torch
 from collections import Counter
 import os
 from IoU import intersection_over_union
+from utils import mAP_plot
 
 def mean_average_precision(
     true_boxes, pred_boxes, iou_threshold=0.5, box_format="corners"):
@@ -104,8 +105,14 @@ def mean_average_precision(
 
     recalls = TP_cumsum / (total_true_bboxes + epsilon)
     precisions = TP_cumsum / (TP_cumsum + FP_cumsum + epsilon)
+    
     precisions = torch.cat((torch.tensor([1]), precisions))
     recalls = torch.cat((torch.tensor([0]), recalls))
+    # precision에는 1부터 시작하여 떨어지는구조
+    # recall   에는 0부터 시작하여 상승하는구조
+
+    mAP_plot(recalls, precisions)
+
     # torch.trapz for numerical integration
     average_precisions.append(torch.trapz(precisions, recalls))
 
@@ -118,10 +125,10 @@ if __name__ == "__main__":
     # txt 가져오기
     gt_path = './gt_labels/'
     # tinaface 평가시 
-    # label_path = './tinaface_labels/'
+    label_path = './tinaface_labels/'
     
     # yoloR 평가시 
-    label_path = './yoloR_labels/'
+    # label_path = './yoloR_labels/'
 
     gt   = os.listdir(gt_path)
     pred = os.listdir(label_path)
