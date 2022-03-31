@@ -2,3 +2,4 @@ __pycache__/
 gt_labels/
 tinaface_labels/
 yoloR_labels/
+retinaface_labels/

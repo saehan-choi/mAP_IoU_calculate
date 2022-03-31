@@ -6,6 +6,7 @@ from utils import mAP_plot
 
 def mean_average_precision(
     true_boxes, pred_boxes, iou_threshold=0.5, box_format="corners"):
+
     """
     Calculates mean average precision 
     Parameters:
@@ -125,7 +126,7 @@ if __name__ == "__main__":
     # txt 가져오기
     gt_path = './gt_labels/'
     # tinaface 평가시 
-    label_path = './tinaface_labels/'
+    label_path = './retinaface_labels/'
     
     # yoloR 평가시 
     # label_path = './yoloR_labels/'
@@ -154,3 +155,4 @@ if __name__ == "__main__":
     print(f'amount of ground truth: {len(gt_arr)}')
     mAP = mean_average_precision(gt_arr, pred_arr)
     print(f'mAP                   : {round(mAP.item(),3)*100}')
+
