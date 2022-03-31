@@ -5,7 +5,7 @@
 # print(k.tolist())
 
 
-# 
+
 # import shutil
 # import os
 
@@ -23,24 +23,25 @@
 
 
 
-# import os
-# import shutil
-# path = './retinaface_labels/'
+import os
+import shutil
+path = './retinaface_labels/'
 
-# retina = os.listdir(path)
+retina = os.listdir(path)
 
-# path_res = './reti/'
-# for i in retina:
+path_res = './reti/'
+for i in retina:
 
-#     f = open(path+i,'r')
-#     k = f.readlines()
-#     m = open(path_res+i,'w')
-#     for a in k:
-#         a = a.split()
-#         a.insert(1,'0')
-#         print(f'{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]}\n')
-#         m.write(f'{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]}\n')
-#     m.close()
+    f = open(path+i,'r')
+    k = f.readlines()
+    m = open(path_res+i,'w')
+    for a in k:
+        a = a.split()
+        
+        a.insert(1,'0')
+        print(f'{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]} {a[6]}\n')
+        m.write(f'{a[0]} {a[1]} {a[2]} {a[3]} {a[4]} {a[5]} {a[6]}\n')
+    m.close()
 
 
 

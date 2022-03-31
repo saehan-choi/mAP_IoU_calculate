@@ -150,9 +150,10 @@ if __name__ == "__main__":
             line = line.split()
             line[1:] = list(map(float, line[1:]))
             pred_arr.append(line)
+    
     # print(gt_arr)
     # print(pred_arr)
     print(f'amount of ground truth: {len(gt_arr)}')
     mAP = mean_average_precision(gt_arr, pred_arr)
-    print(f'mAP                   : {round(mAP.item(),3)*100}')
+    print(f'mAP                   : {round(mAP.item(),4)*100}')
 
