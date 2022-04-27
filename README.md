@@ -14,8 +14,10 @@ train_idx(or filename), class, confidence, x1, y1, x2, y2
 
 ![image](https://user-images.githubusercontent.com/70372577/160989016-34885e12-0eb8-422e-826f-12e00d10abf4.png)
 tinaface mAP result    (WIDERface width 25 or more)
+
 ![image](https://user-images.githubusercontent.com/70372577/160989838-a21361aa-3a73-4cde-9bce-36e8b8b81c05.png)
 SCRFD mAP result  (WIDERface width 25 or more)
+
 ![image](https://user-images.githubusercontent.com/70372577/160989781-f0edc040-3019-4bb3-92f1-b87d0fedb0ca.png)
 yoloR mAP result       (WIDERface width 25 or more)
 
